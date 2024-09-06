@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Courts Data</title>
+</head>
+<body>
+    <h1>Search for Court Cases</h1>
+    <form id="caseForm">
+        <label for="caseNumber">Enter Case Number:</label>
+        <input type="text" id="caseNumber" name="caseNumber">
+        <button type="submit">Search</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('caseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const caseNumber = document.getElementById('caseNumber').value;
+            
+            fetch(`/get_court_data?case_number=${caseNumber}`)
+                .then(response => response.json())
+                .then(data => {
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
