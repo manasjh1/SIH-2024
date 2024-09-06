@@ -1,0 +1,32 @@
+/* Navbar.css */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logg-brand a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: aqua;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: aqua;
+    font-size: 1em;
+}
+
+nav ul li a:hover {
+    color: #007BFF; /* Optional: Change link color on hover */
+}
